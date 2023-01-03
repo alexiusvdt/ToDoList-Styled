@@ -23,7 +23,11 @@
 
 else
 {
-  <p>this item has been completed</p>
+  <p>this item has been completed!</p>
+    @using (Html.BeginForm())
+  {
+    <input type="submit" value="Undo" />
+  }
 }
 
 @if (@Model.JoinEntities.Count == 0)
