@@ -1,3 +1,7 @@
+body {
+	height: 80%;
+}
+
 div#footer {
 	position:fixed;
 	bottom:0px;
@@ -6,4 +10,59 @@ div#footer {
 	color:#CCC;
 	background:#333;
 	padding:8px;
+}
+
+
+btn btn-default {
+		border: none;
+		color: gray;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+	}
+
+.card {
+	/* width: 50%; */
+	height: 35px;
+	margin: .2rem;
+	border: 0;
+	background-color:antiquewhite;
+}
+
+.card-body {
+	font-size: 14px;
+	text-align: justify;
+	display: block;
+	line-height: 8px;
+}
+
+.card-complete {
+	background-image: url(./../../Assets/check-circle.png);
+	background-size: 35px;
+	background-repeat: no-repeat;
+	background-position-x: right;
+	text-decoration: line-through;
+}
+
+.card-incomplete {
+	background-color: burlywood;
+}
+
+#list {
+	width: 70%;
+	height: 35vw;
+	display: flex;
+	flex-direction: column;
+	align-self: center;
+	overflow-y: scroll;
+	padding: 0px 10px;
+}
+div.container {
+	height: 60%;
+	height: 35vw;
+	display: flex;
+	/* overflow-y: scroll; */
+	flex-direction: column;
+	justify-content: center;
 }

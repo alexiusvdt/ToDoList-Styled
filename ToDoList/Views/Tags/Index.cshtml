@@ -8,13 +8,13 @@
 {
   <h3>No tags have been added yet!</h3>
 } 
-
+<div id="list">
 @foreach (Tag tag in Model)
 {
-  <li>@Html.ActionLink($"{tag.Title}", "Details", new { id = tag.TagId })</li>
+  <div class="card">
+    <div class="card-body">
+      @Html.ActionLink($"{tag.Title}", "Details", new { id = tag.TagId })
+    </div>
+  </div>
 }
-
-<p>@Html.ActionLink("Add new tag", "Create")</p>
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
-
+</div>

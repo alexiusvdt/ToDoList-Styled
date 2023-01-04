@@ -4,26 +4,31 @@
 
 @using ToDoList.Models;
 
-@if (@Model.Count == 0)
-{
-  <h3>No items have been added yet!</h3>
-}
-else
-{
-  <ul>
-  @foreach (Item item in Model)
+<div id="list">
+  @if (@Model.Count == 0)
+  {
+    <h3>No items have been added yet!</h3>
+  }
+  else
+  {
+    @foreach (Item item in Model)
     {
       @if (item.Complete)
       {
-        <li><s>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</s> | @item.Category.Name</li>
+        <div class="card card-complete">
+          <div class="card-body">
+            <s>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</s> | @item.Category.Name
+          </div>
+        </div>
       }
       else
       {
-        <li>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name | @item.DueDate</li>
+        <div class="card card-incomplete">
+          <div class="card-body">
+            @Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.Category.Name | @item.DueDate
+          </div>
+        </div>
       }
     }
-  </ul>
-}
-
-<p>@Html.ActionLink("Add new item", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+  }
+</div>

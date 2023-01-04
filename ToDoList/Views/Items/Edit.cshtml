@@ -7,14 +7,16 @@
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.ItemId)
-
+  @:&nbsp;
   @Html.LabelFor(model => model.Description)
+  @:&nbsp;
   @Html.EditorFor(model => model.Description)
-
+  @:&nbsp;
   @Html.LabelFor(model => model.Category)
+  @:&nbsp;
   @Html.DropDownList("CategoryId")
 
   <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<!-- <p>@Html.ActionLink("Back to list", "Index")</p> -->

@@ -9,8 +9,9 @@
   </head>
   <body>
   @await Html.PartialAsync("Header")
-    <div class="container">
-      <h2>@ViewBag.PageTitle</h2>
+  <h2 class="text-center">@ViewBag.PageTitle</h2>
+    <div class="container text-center">
+      
       @RenderBody()
       </div>
       @await Html.PartialAsync("Footer")

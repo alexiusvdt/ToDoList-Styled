@@ -10,10 +10,10 @@
 {
     @Html.HiddenFor(model => model.ItemId)
 
-    @Html.Label("Select tag")
-    @Html.DropDownList("TagId")
+    @Html.Label("Select tag")@:&nbsp;
+    @Html.DropDownList("TagId")@:&nbsp;
 
     <input type="submit" value="Save" />
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<!-- <p>@Html.ActionLink("Back to list", "Index")</p> -->

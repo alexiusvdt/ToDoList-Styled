@@ -10,14 +10,22 @@
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.Description)
+  @:&nbsp;
   @Html.TextBoxFor(model => model.Description)
+  <br>
 
   @Html.LabelFor(model => model.Category)
+  @:&emsp;&nbsp;
   @Html.DropDownList("CategoryId")
+  @:&nbsp;
+  <br>
 
   @Html.LabelFor(model => model.DueDate)
+  @:&emsp;&ensp;
   @Html.TextBoxFor(model => model.DueDate, new { @type = "date" })
+  @:&nbsp;
+  <br><br>
 
-  <input type="submit" value="Add new item" class="btn btn-default" />
+  <input type="submit" value="Add new item"/>
+  <br><br>
 }
-<p>@Html.ActionLink("Show all items", "Index")</p>

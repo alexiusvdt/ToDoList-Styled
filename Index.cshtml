@@ -1,0 +1,65 @@
+@{
+  Layout = "_Layout";
+}
+
+@using ToDoList.Models
+@model ToDoList.Models.Item
+
+<div class="accordion" id="accordionExample">
+@if (@Model.Count == 0)
+{
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        No items have been added yet!
+      </button>
+    </h2>
+  </div>
+}
+else
+{
+  @foreach (Item item in Model)
+    {
+      @if (item.Complete)
+      {
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <s>@Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId })</s> | @item.CategoryName
+            </button>
+          </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            Well done, you did the thing!
+          </div>
+        </div>
+        </div>
+      }
+      else
+      {
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              @Html.ActionLink($"{item.Description}", "Details", new { id = item.ItemId }) | @item.CategoryName
+            </button>
+          </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <strong>Tags:</strong>
+            <ul>
+            @foreach (ItemTag join in Model.JoinEntities)
+            {
+              <li>Tag: @join.Tag.Title</li>
+              @using (Html.BeginForm("DeleteJoin", "Items"))
+              {
+                @Html.Hidden("joinId", @join.ItemTagId)
+                <input type="submit" value="Delete" />
+              }
+            }
+            </ul>
+          </div>
+        </div>
+      }
+    }
+}
+</div>
