@@ -4,10 +4,6 @@
 
 @model ToDoList.Models.Tag
 
-<h2>Edit</h2>
-
-<h4>Edit this tag: @Html.DisplayFor(model => model.Title)</h4>
-
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(model => model.TagId)

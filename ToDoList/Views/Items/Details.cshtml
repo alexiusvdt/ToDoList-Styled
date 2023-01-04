@@ -5,16 +5,15 @@
 @using ToDoList.Models
 @model ToDoList.Models.Item
 
-
-<h2>Item Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
 <h3>@Html.DisplayNameFor(model => model.Category): @Html.DisplayFor(model => model.Category.Name)</h3>
+<h4>Due Date: @Html.DisplayFor(model => model.DueDate)</h4>
+
 
 @if(@Model.Complete == false)
 {
   <p>this item is not complete</p>
-  @* <p>@Html.ActionLink("Mark Complete", "CompletionDetails", new { id = Model.ItemId })</p> *@
   @using (Html.BeginForm())
   {
     <input type="submit" value="Mark Complete" />

@@ -18,6 +18,7 @@ namespace ToDoList.Controllers
 
     public ActionResult Index()
     {
+      ViewBag.PageTitle = "All Tags";
       return View(_db.Tags.ToList());
     }
 
@@ -27,11 +28,13 @@ namespace ToDoList.Controllers
           .Include(tag => tag.JoinEntities)
           .ThenInclude(join => join.Item)
           .FirstOrDefault(tag => tag.TagId == id);
+      ViewBag.PageTitle = $"{thisTag.Title} Details";
       return View(thisTag);
     }
 
     public ActionResult Create()
     {
+      ViewBag.PageTitle = "Create New Tag";
       return View();
     }
 
@@ -46,7 +49,7 @@ namespace ToDoList.Controllers
     public ActionResult AddItem(int id)
     {
       Tag thisTag = _db.Tags.FirstOrDefault(tags => tags.TagId == id);
-      ViewBag.ItemId = new SelectList(_db.Items, "ItemId", "Description");
+      ViewBag.PageTitle = "Add New Tag";
       return View(thisTag);
     }
 
@@ -67,6 +70,7 @@ namespace ToDoList.Controllers
     public ActionResult Edit(int id)
     {
       Tag thisTag = _db.Tags.FirstOrDefault(tags => tags.TagId == id);
+      ViewBag.PageTitle = $"Edit {thisTag.Title}";
       return View(thisTag);
     }
 
@@ -81,6 +85,7 @@ namespace ToDoList.Controllers
     public ActionResult Delete(int id)
     {
       Tag thisTag = _db.Tags.FirstOrDefault(tags => tags.TagId == id);
+      ViewBag.PageTitle = $"Delete {thisTag.Title}";
       return View(thisTag);
     }
 

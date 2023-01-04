@@ -21,12 +21,15 @@ namespace ToDoList.Controllers
       List<Item> model = _db.Items
                             .Include(item => item.Category)
                             .ToList();
-      return View(model);
+      IEnumerable<Item> query = model.OrderBy(item => item.DueDate).ToList();
+      ViewBag.PageTitle = "To-Do List";
+      return View(query);
     }
 
     public ActionResult Create()
     {
       ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+      ViewBag.PageTitle = "New To-Do List Item";
       return View();
     }
 
@@ -47,9 +50,9 @@ namespace ToDoList.Controllers
       Item thisItem = _db.Items
           .Include(item => item.Category)
           .Include(item => item.JoinEntities)
-          // .Include(item => item.Complete)
           .ThenInclude(join => join.Tag)
           .FirstOrDefault(item => item.ItemId == id);
+      ViewBag.PageTitle = $"{thisItem.Description} Details";
       return View(thisItem);
     }
 
@@ -57,6 +60,7 @@ namespace ToDoList.Controllers
     {
       Item thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
       ViewBag.CategoryId = new SelectList(_db.Categories, "CategoryId", "Name");
+      ViewBag.PageTitle = $"Edit {thisItem.Description}";
       return View(thisItem);
     }
 
@@ -65,12 +69,14 @@ namespace ToDoList.Controllers
     {
       _db.Items.Update(item);
       _db.SaveChanges();
+      ViewBag.PageTitle = $"Edit {item.Description}";
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
       Item thisItem = _db.Items.FirstOrDefault(item => item.ItemId == id);
+      ViewBag.PageTitle = $"Delete {thisItem.Description}";
       return View(thisItem);
     }
 
@@ -87,6 +93,7 @@ namespace ToDoList.Controllers
     {
       Item thisItem = _db.Items.FirstOrDefault(items => items.ItemId == id);
       ViewBag.TagId = new SelectList(_db.Tags, "TagId", "Title");
+      ViewBag.PageTitle = "Add New Tag";
       return View(thisItem);
     }
 
