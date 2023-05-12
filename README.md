@@ -4,7 +4,7 @@
 | Section      | Link |
 | ----------- | ----------- |
 | Setup      | [link](##set-up-and-launch)      |
-| Bugs   | [link](##bugs)        |
+| Bugs   | [link](##known-issues)        |
 | Thanks   | [link](##thanks)        |
 | License Info   | [link](##license)        |
 
