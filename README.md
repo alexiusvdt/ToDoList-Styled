@@ -1,9 +1,16 @@
 # ToDoList
 * A todo list with .net and a SQL database for storage
 
+| Section      | Link |
+| ----------- | ----------- |
+| Setup      | [link](##set-up-and-launch)      |
+| Bugs   | [link](##bugs)        |
+| Thanks   | [link](##thanks)        |
+| License Info   | [link](##license)        |
+
 ===========================================================================================
 
-### Set Up and Launch 🚀
+## Set Up and Launch 🚀
 
 1. Clone this repo.
 2. Open the terminal and navigate to this project's production directory called "ToDoList".
@@ -21,6 +28,10 @@
 5. Create the database using the migrations in the To Do List project. Open your shell to the production directory "ToDoList", and run `dotnet ef database update`. 
 6. Within the production directory "ToDoList", run `dotnet watch run` in the command line to start the project in development mode with a watcher.
 7. Open the browser to _https://localhost:5001_.
+
+## Known Issues
+
+## Thanks
 
 ## License
 Copyright 2023 Alex Johnson
