@@ -8,7 +8,7 @@
 | Thanks   | [link](##thanks)        |
 | License Info   | [link](##license)        |
 
-===========================================================================================
+=================
 
 ## Set Up and Launch 🚀
 
@@ -20,7 +20,7 @@
 ```json
 {
   "ConnectionStrings": {
-      "DefaultConnection": "Server=localhost;Port=3306;database=to_do_list_with_many_to_many;uid=root;pwd=epicodus;"
+      "DefaultConnection": "Server=localhost;Port=3306;database=to_do_list_with_many_to_many;uid=[your account];pwd=[your password];"
   }
 }
 ```
