@@ -30,6 +30,9 @@
 7. Open the browser to _https://localhost:5001_.
 
 ## Known Issues
+- users can submit items without due dates
+- tags can be created, but not assigned
+- general style improvements can be made
 
 ## Thanks
 

@@ -13,6 +13,7 @@
 <h4>Due Date: @Html.DisplayFor(model => model.DueDate)</h4>
 
 
+
 @if(@Model.Complete == false)
 {
   <p>this item is not complete</p>
@@ -34,6 +35,7 @@ else
 @if (@Model.JoinEntities.Count == 0)
 {
   <p>This item does not have any tags yet!</p>
+  <p>@Html.ActionLink("Add a Tag", "AddTag", new { id = Model.ItemId })</p>
 }
 else
 {
@@ -49,9 +51,10 @@ else
       }
     }
   </ul>
+  <p>@Html.ActionLink("Add another Tag", "AddTag", new { id = Model.ItemId })</p>
 }
-<!-- 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit Item or Category", "Edit", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Add a Tag", "AddTag", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p> -->
+
+<!-- <p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Item or Category", "Edit", new { id = Model.ItemId })</p> -->
+
+<!-- <p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p> -->
