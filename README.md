@@ -31,7 +31,6 @@
 
 ## Known Issues
 - users can submit items without due dates
-- tags can be created, but not assigned
 - general style improvements can be made
 
 ## Thanks
